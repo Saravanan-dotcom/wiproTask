@@ -18,7 +18,7 @@ public class Student {
 		this.gradeLevel = gradeLevel;
 		this.gpa = gpa;
 		this.gender = gender;
-		this.activities = activities;
+		this.activities = activities; 
 	}
 	
 	
