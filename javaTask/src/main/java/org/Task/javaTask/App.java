@@ -44,6 +44,7 @@ public class App
 		Function<Student, Student> f = s -> s;
 		//predicate
 		Predicate<Student> p2 = t3 ->  t3.getGpa() > 3.5;
+		//Bi Function
 		
 		t1.accept(studentList);
 		List<Student> collect = studentList.stream().filter(p).map(f).collect(Collectors.toList());
