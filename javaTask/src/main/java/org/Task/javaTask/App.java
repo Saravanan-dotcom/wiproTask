@@ -1,6 +1,5 @@
 package org.Task.javaTask;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
@@ -22,7 +21,6 @@ public class App
 {
     public static void main( String[] args )
     {
-		
 		StudentData sd = new StudentData();
 		//Consumer
 		Consumer<List<Student>> t1 = s -> {
@@ -33,7 +31,13 @@ public class App
 		};
 		//Supplayer
 		List<Student> studentList = sd.getAllStudents();
-	
+		
+		for(Student std:studentList)
+		{
+			Supplier<Student> supplier =  () -> new Student(std);
+			System.out.println("supplier------------------------"+supplier.get());
+		}
+		
 		//predicate
 		Predicate<Student> p = t3 ->  t3.getGradeLevel() > 3;
 		//Function

@@ -22,6 +22,16 @@ public class Student {
 	}
 	
 	
+	public Student(Student student) {
+		this.name = student.name;
+		this.gradeLevel = student.gradeLevel;
+		this.gpa = student.gpa;
+		this.gender = student.gender;
+		this.activities = student.activities; 
+		
+	}
+
+
 	public String getName() {
 		return name;
 	}
