@@ -12,7 +12,7 @@ public class App
 
 	public static void main(String[] args) {
 
-		String[] strAr1 = new String[] { "P@sswORDoqq", "20passWORD20", "PASS6word" };
+		String[] strAr1 = new String[] { "P@sswORDoqq", "20passWORD20", "PASS6word" };  
 
 		String checkString = "4dro6";
 		List<String> result = checkPassword(strAr1, checkString);
