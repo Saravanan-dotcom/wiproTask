@@ -1,24 +1,27 @@
 package com.StudentDetails.StudentDetails;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(MockitoJUnitRunner.Silent.class)
+@RunWith(SpringRunner.class)
+@DataJpaTest
 class StudentServiceImplTest  {
 	
 	
-	@InjectMocks
-	public StudentServiceImpl studentService = new StudentServiceImpl();
-	@Mock
+	@Autowired
+	public StudentServiceImpl studentService;
+	@MockBean
 	public StudentRepo studentRepo;
 	
 	@Test
@@ -30,9 +33,9 @@ class StudentServiceImplTest  {
 		student.setGpa(2.2);
 		student.setGradeLevel(3);
 		student.setName("Ram");
-		studentService.saveStudent(student);
 		Mockito.when(studentRepo.save(student)).thenReturn(student);
-		assertEquals(student, student);
+		studentService.saveStudent(student);
+		assertEquals(studentService.saveStudent(student), student);
 	}
 	
 	
@@ -81,5 +84,7 @@ class StudentServiceImplTest  {
 		}
 		assertTrue(isflag);
 	}
+
+	
 
 }

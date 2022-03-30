@@ -5,11 +5,14 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
+import org.junit.runner.RunWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
+import org.springframework.test.context.junit4.SpringRunner;
+@RunWith(SpringRunner.class)
 @WebMvcTest
 class StudentControllerTest {
 	
@@ -93,6 +96,7 @@ class StudentControllerTest {
 		student.setName("Ram");
 
 		Optional<Student> studentData = Optional.ofNullable(student);
+		Mockito.when(studentService.findById(1)).thenReturn(studentData);
 		
 		studentController.getStudent(1);
 		Mockito.when(studentService.findById(1)).thenReturn(studentData);
